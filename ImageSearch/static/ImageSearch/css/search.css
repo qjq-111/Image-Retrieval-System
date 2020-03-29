@@ -1,0 +1,44 @@
+body {  
+	height: 100%;  
+	background-image: url("../image/bg.png");    
+	background-position: center center;    
+	background-repeat: no-repeat;    
+	background-attachment: fixed;    
+	background-size: cover;
+}
+
+.text-center{
+	margin-top: 50px;
+}
+
+.btn{
+	height: 40px;
+	width: 60px;
+}
+
+.form-group{
+	position: relative;
+	margin-top: 40px;
+}
+
+
+.flex-container{
+	display: -webkit-flex;
+	display: flex;
+	width:400px;
+	height:100px;
+}
+.from-group{
+	width:200px;
+	height:70px;
+	margin: 20px
+}
+
+.flex-container{
+	position: relative;
+	margin: 0 auto;
+}
+
+
+
+

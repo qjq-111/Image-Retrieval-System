@@ -1,0 +1,56 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'ImageSearch/css/result.css' %}" rel="stylesheet"/>
+    <title>以图搜图</title>
+</head>
+<body>
+	<div class="container">
+		<div class="col">
+			<form class="form-search" method="post" action="/search/" enctype="multipart/form-data">
+				{% csrf_token %}
+				<h2 class="text-center">以图搜图</h2>
+				<div class="flex-container">
+			    	<div class="form-group1">
+			        	<label for="inputImage" class="col-sm-10 control-label">上传图片</label>
+			        	<div class="col-sm-10">
+			            	<input class="frame" accept="image/*" type="file" name="uploadImage" id="inputImage">
+			        	</div>
+			    	</div>
+			    	<div class="form-group2">　　　　
+			        	<button type="submit" class="btn btn-danger">确定</button>
+			    	</div>
+			    	<div style="width: 150px; height:150px">
+			    		<img class="form-group3" src="{% static img_path %}">
+			    	</div>
+			    	<!--
+			    	<div style="width: 150px; height:150px">
+			    		<img class="form-group3" src="{% static 'ImageSearch/image/1.jpg' %}">
+			    	</div>
+			    -->
+			    </div>
+			</form>
+		</div>
+	</div>
+
+	<div class="flex-container1">
+		{% for path, describe in top5_img %}
+		<div class="polaroid">
+			<a target="_blank" href="{% static path %}">
+				<img class="img1" src="{% static path %}">
+			</a>
+			<div class="desc">
+				<p>{{describe}}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
